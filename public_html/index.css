@@ -1,0 +1,40 @@
+#img-portada{
+    position: fixed;
+    width: 100%;
+}
+
+body{
+    overflow: hidden;
+    margin: 0;
+}
+
+#botones{
+    float: left;
+    position: relative;
+    padding-top: 22%;
+    margin-left: 36%;
+}
+
+#titulo-portada{
+    float: left;
+    position: relative;
+    padding-top: 3%;
+    margin-left: 36%;
+}
+
+h1{
+    font-size: 80px;
+    font-family: cursive;
+    color: #d83b3b;
+    cursor: none;
+}
+
+button{
+    height: 50px;
+    width: 100px;
+    margin: 10px;
+    font-size: 20px;
+    background: white;
+    border: transparent;
+    cursor: pointer;
+}
