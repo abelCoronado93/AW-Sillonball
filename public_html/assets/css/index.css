@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'sillonball-tittle';
+    src: url('../fonts/thunder_strike-webfont.eot');
+    src: url('../fonts/thunder_strike-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/thunder_strike-webfont.woff2') format('woff2'),
+         url('../fonts/thunder_strike-webfont.woff') format('woff'),
+         url('../fonts/thunder_strike-webfont.ttf') format('truetype'),
+         url('../fonts/thunder_strike-webfont.svg#thunder_strikeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}  
+
+html{
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    //background: linear-gradient(#f2f2f2, white);
+    //  background-image: url('../imagenes/portada.jpg');
+    background-position: center;
+    height: 100%;
+}
+
+#botones{
+    position: fixed;
+    width: 100%;
+    bottom: 15%;
+    text-align: center;
+}
+
+#titulo-portada{
+    margin: auto;
+    text-align: center;
+}
+
+h1{
+    font-size: 200px;
+    font-family: sillonball-tittle, roboto;
+    font-weight: normal;
+    color: #d83b3b;
+    cursor: none;
+    margin-bottom: 1px;
+}
+
+p{
+    font-size: 30px;
+    font-family: roboto;
+    color: #d83b3b;
+}
+
+button{
+    height: 50px;
+    width: 100px;
+    margin: 10px;
+    font-size: 20px;
+    color: white;
+    background: #d83b3b;
+    border: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/****************************************************************+*****/
+
+@media (max-width: 800px){
+    h1{
+        font-size: 100px;
+    }
+    
+    p{
+        font-size: 20px;
+    }
+    
+    button{
+        height: 30px;
+        width: 90px;
+        margin: 5px;
+        font-size: 20px;
+    }
+}

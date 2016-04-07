@@ -1,0 +1,47 @@
+/*
+ *      Grid
+*/
+
+#two-column{
+    display: block;
+}
+
+ul.rig {
+	list-style: none;
+	font-size: 0px;
+	//margin-left: -2.5%; /* should match li left margin */
+}
+ul.rig li {
+	display: inline-block;
+	padding: 10px;
+	margin: 0 0 2.5% 2.5%;
+	//border: 1px solid #ddd;
+	font-size: 16px;
+	vertical-align: top;
+	//box-shadow: 0 0 5px #ddd;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+ul.rig li img {
+	max-width: 100%;
+	height: auto;
+}
+
+ul.rig li p {
+	font-size: .9em;
+	line-height: 1.5em;
+	color: #999;
+}
+
+/* class for 2 columns */
+ul.rig.columns-2 li {
+	width: 45%; /* this value + 2.5 should = 50% */
+}
+
+.img-miembro{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}

@@ -1,0 +1,65 @@
+#img-user {
+    margin-bottom: 2%;
+    margin-left: 7%;
+    align-content: center;
+    background: #d83b3b;
+    border-style: solid;
+    border-radius: 100%;
+    border-color: #d83b3b;  
+}
+
+.info{
+  padding-left: 37%;  
+}
+
+.info-boton{
+    padding-top: 3%;
+    padding-left: 43%;
+}
+
+.edita-boton{
+    padding-top: 3%;
+    padding-left: 40%;
+}
+
+b {
+    color: #d83b3b;
+}
+
+p {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 800px){
+    .info{
+        padding-left: 35%;
+    }
+    
+    .info-boton{
+        padding-left: 42%;
+    }
+    
+    .edita-boton{
+        padding-left: 36%;
+    }
+    
+    .form-input {
+        width: 80%;
+    }
+}
+
+@media (max-width: 350px){
+    .info{
+        padding-left: 15%;
+    }
+    
+    .info-boton{
+        padding-top: 11%;
+        padding-left: 25%;
+    }
+    
+    .edita-boton{
+        padding-left: 14%;
+    }
+}
