@@ -1,0 +1,26 @@
+h1 {
+   padding: 5% 0 0 0;    
+}
+
+p {
+    padding: 3% 0 4% 13%;
+}
+
+form {
+    padding: 0 0 3% 32%;
+}
+
+ul {
+    padding-left: 46%;
+    padding-bottom: 4%;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul h4 {
+    font-size: 20px;
+    margin-bottom: 2px;
+    
+}

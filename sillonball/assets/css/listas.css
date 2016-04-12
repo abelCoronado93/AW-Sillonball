@@ -1,0 +1,85 @@
+a{
+    text-decoration: none;
+    color: grey;
+}
+
+/* ----- Image grids ----- */
+ul.rig {
+	list-style: none;
+	font-size: 0px;
+	margin-left: -2.5%; /* should match li left margin */
+}
+ul.rig li {
+	display: inline-block;
+	padding: 10px;
+	margin: 0 0 2.5% 2.5%;
+	background: #fff;
+	font-size: 16px;
+	font-size: 1rem;
+	vertical-align: top;
+	box-shadow: 0 0 5px #ddd;
+	box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+ul.rig li h3 {
+    text-align: center;
+}
+
+ul.rig li p {
+	font-size: .9em;
+	line-height: 1.5em;
+	color: #999;
+    cursor: pointer;
+}
+
+/* class for 3 columns */
+ul.rig.columns-3 li {
+	width: 30.83%; /* this value + 2.5 should = 33% */
+}
+
+select{
+    background-color: #d83b3b;
+    color: white;
+    border-radius: 10px;
+    height: 30px;
+    width: 120px;
+    margin-left: 70px;
+    border: none;
+}
+
+#paneleditor{	
+	float: right;
+	padding-right: 5%;
+	
+}
+
+@media (max-width: 800px) {
+	.container {
+		width: auto;
+		padding: 0 10px;
+	}
+    
+    ul.rig li {
+		width: 45% !important; /* over-ride all li styles */
+		margin: 0 0 15px 15px;
+	}
+}
+
+@media (max-width: 630px) {
+	ul.grid-nav li {
+		display: block;
+		margin: 0 0 5px;
+	}
+	ul.grid-nav li a {
+		display: block;
+	}
+	ul.rig {
+		margin-left: 0;
+	}
+	ul.rig li {
+		width: 100% !important; /* over-ride all li styles */
+		margin: 0 0 20px;
+	}
+}

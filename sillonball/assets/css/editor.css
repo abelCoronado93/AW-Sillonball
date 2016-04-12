@@ -1,0 +1,32 @@
+ul.rig li img.botonSerieEditor {
+    height: 20px;   
+    //margin-right: 20%;
+    //float: right;
+}
+
+ul.rig li img:hover{
+	//background-color: black;
+}
+
+ul.rig li .botonesSerie{
+	float: right;
+	margin-right: 15%;
+	display: inline-block;
+	margin-top: 2px;
+
+}
+
+.botonAddNoticiaEditor{
+    height: 40px;
+    float: right;
+    margin-right: 8%;
+    margin-top: -55px;
+    margin-bottom: 20px;
+}
+
+.botonCatalogoEditor{
+	width: 40px;
+	float: right;
+	margin-right: 8%;
+	cursor: pointer;
+}

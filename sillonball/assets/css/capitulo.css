@@ -1,0 +1,124 @@
+.boton{
+    height: 25px;
+    width: 60px;
+    font-size: 15px;
+    color: white;
+    background: #d83b3b;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.eliminarComentario{
+    background: white;
+    border: transparent;
+    width: 40px;
+    float: right;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.caratula{
+	height: auto;
+    width: 200px;
+	margin: 0 0 10px;
+}
+
+.nuevoComentario{
+    height: auto;
+    width: 79%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+#usuarioNuevoComentario{
+    width: 30px;
+    padding-left: 12%;
+}
+
+#nombreUsuarioNuevoComentario{
+    padding-left: 20%;
+    margin-top: -30px;
+}
+
+.comentarios {
+	list-style: none;
+	padding: 0 10% 3% 10%;
+}
+
+.comentarios li{
+	border: 1px solid #ddd;
+	box-shadow: 0 0 5px #ddd;
+	margin: 5px;
+}
+
+.comentarios p{
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.usuarioComentario{
+	width: 30px;
+	padding-top: 2%;
+	padding-left: 5%; 
+}
+
+.nombreUsuarioComentario{
+	font-weight: bold;
+	color: #d83b3b;
+	margin-top: -5%;
+    padding-left: 20px;
+	margin-bottom: 10px;
+} 
+
+.stars{
+	width: 15px;
+}
+
+#two-column{
+    display: block;
+}
+
+ul.rig {
+	list-style: none;
+	font-size: 0px;
+}
+
+ul.rig li {
+	display: inline-block;
+	padding: 10px;
+	margin: 0 0 2.5% 2.5%;
+	font-size: 16px;
+	vertical-align: top;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+ul.rig li p {
+	font-size: .9em;
+	line-height: 1.5em;
+}
+
+/* class for 2 columns */
+ul.rig.columns-2 li {
+	width: 45%; /* this value + 2.5 should = 50% */
+}
+
+@media (max-width: 800px){
+    
+    .usuarioComentario{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    
+    .nombreUsuarioComentario{
+        margin-top: -30px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    
+    #nombreUsuarioNuevoComentario{
+        padding-left: 25%;
+        margin-top: -30px;
+    }
+}

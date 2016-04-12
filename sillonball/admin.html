@@ -5,21 +5,19 @@
     <title>Sillonball</title>
     <link id="favicon" rel="icon" href="assets/imagenes/iconos/favicon.png" type="image/png"/>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
 </head>
  
 <body>
     <header id="main-header">
         <div id="div-fotoCab"><a href="main.html"><img id="foto-cabecera" src="assets/imagenes/iconos/iconoSillon.png" alt=""/></a></div>
         <a id="logo-header" href="main.html">
-            <span class="site-name">Sillonball</span>
-            <span class="site-desc"><em>Haz el vago!</em></span>
+            <span class="site-name">Admin</span>
+            <span class="site-desc"><em>Administrame!</em></span>
         </a> <!-- / #logo-header -->
         <input type="checkbox" id="check-menu">
         <nav class="menu">
             <ul>
-                <li><a href="catalogo.html"><img class="icono-cabecera" src="assets/imagenes/iconos/iconoGrid.png" alt="Catálogo"/></a></li>
-                <li><a href="listas.html"><img class="icono-cabecera" src="assets/imagenes/iconos/iconoListas3.png" alt="Mis Listas"/></a></li>
-                <li><a href="calendario.html"><img class="icono-cabecera" src="assets/imagenes/iconos/iconoCalendario.png" alt="Calendario"/></a></li>
                 <li><a href="perfil.html"><img class="icono-cabecera" src="assets/imagenes/iconos/iconoUsuario2.png" alt="Mi Perfil"/></a></li>
             </ul>
        </nav><!-- / nav -->
@@ -27,20 +25,30 @@
     <label id="boton-menu" for="check-menu"><h3 id="boton-menu-responsive">Menú</h3></label>
  
     <section id="main-content">
-	<article>
-            <header>
-                <h1>Mis listas</h1>
-            </header>
-        <ul>
-            <li>
-                    
-            </li>
-            <li>
+        <h1>Admin</h1>
+        
+        <p>Nuestro rol 'admin' gestionará únicamente los roles de usuarios (editor, usuario autenticado)</p>
+    
+        <form>
+            <label>Nuevo editor</label>
+            <input list="nuevoeditor" name="list" />
+            <datalist id="nuevoeditor">
+                <option label="acoronad@ucm.es" value="Abel">
+                <option label="mcasta01@ucm.es" value="María">
+                <option label="juanlur@ucm.es" value="Juanlu">
+                <option label="carlospi@ucm.es" value="Piña">
+            </datalist>
             
-            </li>
+            <button>Aceptar</button>
+            
+        </form>
+        
+        
+        <ul>
+            <h4><b>Editores</b></h4>
+            <li>Abel Coronado</li>
+            <li>Carlos Piña</li>
         </ul>
-               
-	</article> <!-- /article -->
     </section> <!-- / #main-content -->
  	
     <footer id="main-footer">

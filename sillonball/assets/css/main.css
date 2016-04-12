@@ -159,7 +159,8 @@ nav ul li a:hover {
 /* contenido */
 
 #img-noticia {
-    width: 100%;
+    width: 80%; 
+    padding-left: 10%;
 }
 
 #main-content {
@@ -292,10 +293,6 @@ nav ul li a:hover {
     #logo-header .site-desc{
         display: none;
     }
-    
-    iframe{
-        display: none;
-    }
 }
 
 @media (max-width: 800px){
@@ -364,5 +361,8 @@ nav ul li a:hover {
         margin-top: 50px;
     }
 
+     iframe{
+        display: none;
+    }
 }
 

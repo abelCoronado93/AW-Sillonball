@@ -1,3 +1,8 @@
+a{
+    text-decoration: none;
+    color: grey;
+}
+
 /* ----- Image grids ----- */
 ul.rig {
 	list-style: none;
@@ -19,6 +24,7 @@ ul.rig li img {
 	height: 300px;
     width: auto;
 	margin: 0 0 10px;
+    cursor: pointer;
 }
 
 ul.rig li h3 {
@@ -29,6 +35,13 @@ ul.rig li p {
 	font-size: .9em;
 	line-height: 1.5em;
 	color: #999;
+    cursor: pointer;
+}
+
+ul.rig li img#i-addSerieLista{
+    margin-left: 60px;
+    margin-top: 110px;
+    height: 60px;
 }
 
 /* class for 3 columns */
@@ -45,8 +58,14 @@ select{
     margin-left: 70px;
     border: none;
 }
+#paneleditor{
+	
+	float: right;
+	padding-right: 5%;
+	
+}
 
-@media (max-width: 1199px) {
+@media (max-width: 830px) {
 	.container {
 		width: auto;
 		padding: 0 10px;
@@ -74,4 +93,10 @@ select{
 		width: 100% !important; /* over-ride all li styles */
 		margin: 0 0 20px;
 	}
+    
+    ul.rig li img#i-addSerieLista{
+    margin-left: 60px;
+    margin-top: 20px;
+    height: 60px;
+}
 }
