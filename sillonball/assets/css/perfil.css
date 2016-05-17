@@ -1,11 +1,28 @@
-#img-user {
+form #image {
+    max-width: 150px;
     margin-bottom: 2%;
-    margin-left: 7%;
+    margin-left: -15%;
     align-content: center;
     background: #d83b3b;
     border-style: solid;
     border-radius: 100%;
     border-color: #d83b3b;  
+    
+}
+
+#image {
+    max-width: 150px;
+    margin-bottom: 2%;
+    margin-left: 5%;
+    align-content: center;
+    background: #d83b3b;
+    border-style: solid;
+    border-radius: 100%;
+    border-color: #d83b3b;  
+}
+
+img{
+    max-width: 100%;
 }
 
 .info{
@@ -19,7 +36,7 @@
 
 .edita-boton{
     padding-top: 3%;
-    padding-left: 40%;
+    padding-left: 38%;
 }
 
 b {
@@ -29,6 +46,11 @@ b {
 p {
     margin-top: 15px;
     margin-bottom: 0;
+}
+
+#editarAvatar{
+    margin-left: -37%;
+    text-align: center;
 }
 
 @media (max-width: 800px){

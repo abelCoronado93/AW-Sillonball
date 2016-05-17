@@ -11,23 +11,26 @@
 
 }  
 
-html{
-    height: 100%;
-}
 
 body{
-    margin: 0;
-    //background: linear-gradient(#f2f2f2, white);
-    //  background-image: url('../imagenes/portada.jpg');
-    background-position: center;
-    height: 100%;
+    overflow: hidden;
+    font-family: sans-serif;
 }
 
 #botones{
-    position: fixed;
-    width: 100%;
-    bottom: 15%;
+    margin-top: 10%;
     text-align: center;
+}
+
+#botones a, button{
+    margin: 10px;
+    font-size: 20px;
+    color: white;
+    background: #d83b3b;
+    border: #000;
+    border-radius: 10px;
+    padding: 15px;
+    text-decoration: none;
 }
 
 #titulo-portada{
@@ -35,31 +38,77 @@ body{
     text-align: center;
 }
 
-h1{
+form span{
+    font-size: 1.6em!important;
+    color: #d83b3b;
+    margin-right: 10px;
+}
+
+#myModal2 input {
+    border-width: 1px;
+    border-radius: 5px;
+    text-align: center;
+    border: solid black 1px;
+    margin-top: 0;
+    height: 15px;
+    
+}
+
+#myModal2 div {
+    margin: -10px;
+}
+
+#myModal2 label {
+    margin-top: 5px;
+    width: 45%;
+    float: left;
+    text-align: left;
+}
+
+h1 {
     font-size: 200px;
     font-family: sillonball-tittle, roboto;
     font-weight: normal;
     color: #d83b3b;
     cursor: none;
     margin-bottom: 1px;
+    margin-top:  20px;
+}
+
+.titulomodal{
+    font-size: 100px;
+    font-family: sillonball-tittle, roboto;
+    font-weight: normal;
+    color: #d83b3b;
+    text-align: center;
+    margin-bottom: 1px;
+    margin-top:  20px;
 }
 
 p{
-    font-size: 30px;
+    font-size: 40px;
     font-family: roboto;
     color: #d83b3b;
 }
 
-button{
-    height: 50px;
-    width: 100px;
-    margin: 10px;
-    font-size: 20px;
-    color: white;
-    background: #d83b3b;
-    border: transparent;
-    border-radius: 10px;
-    cursor: pointer;
+form {
+    margin: auto;
+    text-align: center;
+}
+
+label{
+    color: #d83b3b;
+    font-size: 22px;
+}
+
+input{
+    border-width: 1px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+    border: solid black 1px;
+    padding: 10px;
 }
 
 /****************************************************************+*****/
@@ -74,9 +123,16 @@ button{
     }
     
     button{
-        height: 30px;
-        width: 90px;
         margin: 5px;
         font-size: 20px;
     }
+}
+
+
+.error{
+    padding: 15px;
+    background-color: #d83b3b;
+    margin: 25px auto;
+    color: #670000;
+    border-radius: 10px;
 }

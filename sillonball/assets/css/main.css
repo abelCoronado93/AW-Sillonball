@@ -70,6 +70,7 @@ em {
     left: 0; /* Posicionamos la cabecera al lado izquierdo */
     top: 0; /* Posicionamos la cabecera pegada arriba */    
     position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+    z-index: 5;
 }
 
 #main-header a {
@@ -83,7 +84,12 @@ em {
 .icono-cabecera{
     width: 50px;
     height: 50px;
-    padding: 25px 0 0 5px;
+    margin: 25px 0 0 5px;
+}
+
+.avatar-cabecera{
+    border-radius: 50%;
+    border: 3px solid white;
 }
 
 .icono-cabecera:hover{
@@ -239,8 +245,7 @@ nav ul li a:hover {
 .form-button{
     border-radius: 10px;
     color: white;
-    height: 25px;
-    width: 80px;
+    padding: 10px;
     margin: 5px;
     font-size: 15px;
     background: #d83b3b;
@@ -292,6 +297,12 @@ nav ul li a:hover {
     }
     #logo-header .site-desc{
         display: none;
+    }
+}
+
+@media (max-width: 630px){
+    .botonAddNoticiaEditor{
+        padding-top: 50px;
     }
 }
 
@@ -366,3 +377,24 @@ nav ul li a:hover {
     }
 }
 
+.error{
+    padding: 15px;
+    background-color: #d83b3b;
+    margin: 25px auto;
+    color: #670000;
+    border-radius: 10px;
+}
+
+
+.exito{
+    padding: 15px;
+    background-color: #5cb85c;
+    margin: 25px auto;
+    color: #670000;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    margin-bottom: -40px;
+    color: #fff;
+}
