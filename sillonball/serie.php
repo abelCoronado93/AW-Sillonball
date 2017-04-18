@@ -3,6 +3,10 @@
     require './controller/logueadoController.php';
     $controller = new logueadoController();
     $usuario = $controller->getUserData($_SESSION["email"]);
+    $id = $_GET['id'];
+    $thisSerie = $controller->getThisSerie($id);
+    $temporadas = $controller->getAllTemp($id);
+    $puntuacionMedia = $controller->getPuntuacionMediaSerie($id);
 ?>
 
 <!DOCTYPE html>
@@ -21,42 +25,47 @@
     <section id="main-content">
 	<article>
             <header>
-                <h1>Daredevil</h1>
+                <?php 
+                    foreach($thisSerie as $Tserie){
+                    echo '<h1>'.$Tserie[1].'</h1>'; }
+                ?>
             </header>
         <ul class="rig columns-2">
-            <li>
-                <img class="caratula" src="./assets/imagenes/caratulas/Daredevil2.jpg" alt="caratula"/>
-            </li>
-            <li>
-                <p><b>Titulo:</b> Daredevil</p>
-                <p><b>Año: </b> 2015</p>
-                <p><b>Género: </b> Acción, Ciencia ficción, Superhéroes, Comic</p>
-                <p><b>Sinopsis: </b> Serie de TV. Adaptación televisiva de los cómics del abogado de día, Matt Murdock, y superhéroe de noche, Daredevil.</p>
-                <p><b>Duración capítulos aprox: </b> 60 min.</p>
-                <p><b>Puntuación: </b> 3.8/5 </p>
-            </li>
+            <?php
+                
+                foreach($thisSerie as $Tserie){
+                    $ruta = './assets/imagenes/caratulas/' . $Tserie[2];
+                    echo '<li>'
+                        . '<img class="caratula" src="' . $ruta . '"/> '
+                        . '</li>';
+                     echo '<li>'
+                        .'<p><b>Titulo:</b> ' . $Tserie[1] . '</p>'
+                        .'<p><b>Género:</b> ' . $Tserie[3] . '</p>'
+                        .'<p><b>Sinopsis:</b> ' . $Tserie[4] . '</p>'
+                        .'<p><b>Año:</b> ' . $Tserie[5] . '</p>'
+                        .'<p><b>Puntuación:</b> ' . round($puntuacionMedia[0][0], 2) . '/10</p>'
+                        .'<p><b>Duración:</b> ' . $Tserie[6] . ' min</p>'     
+                        . '</li>';
+                }
+            ?>
         </ul>
         
         <ul rig class="rig columns-2">
-            <li class="nivel1"><h3>Temporada 1</h3>
-                <ul class="nivel2">
-                    <li><a href="capitulo.php">Capítulo 1x01</a></li>
-                    <li>Capítulo 1x02</li>
-                    <li>Capítulo 1x03</li>
-                    <li>Capítulo 1x04</li>
-                    <li>Capítulo 1x05</li>
-                    <li>Capítulo 1x06</li>
-                </ul>
-            <li class="nivel1"><h3>Temporada 2</h3>
-                <ul class="nivel2">
-                    <li>Capítulo 2x01</li>
-                    <li>Capítulo 2x02</li>
-                    <li>Capítulo 2x03</li>
-                    <li>Capítulo 2x04</li>
-                    <li>Capítulo 2x05</li>
-                    <li>Capítulo 2x06</li>
-                </ul>
-            </li>
+            
+            <?php
+            foreach($temporadas as $temp){
+                echo '<li class="nivel1" id="'.$temp[1].'">'
+                    . '<h3>Temporada '. $temp[2].'</h3>
+                   <ul class="nivel2" id="c' . $temp[1] . '">';
+                   $idTemp = $temp[1];
+                   $capitulos = $controller->getCapsByTemp($idTemp);
+                   foreach ($capitulos as $capitulo){
+                       echo  '<li><a href="capitulo.php?idCap=' . $capitulo[0] . '">Capítulo'
+                        . $temp[2].'x'.$capitulo[4].'</a></li>';
+                   }
+                    echo'</ul>';
+            }
+            ?>
         </ul>
                
 	</article> <!-- /article -->
@@ -66,3 +75,23 @@
     
 </body>
 </html>
+<script src="assets/js/jquery.js" type="text/javascript"></script>
+<script>
+$(document).ready(function () {
+        $(".nivel1").click(function () {
+            idT = $(this).attr("id");
+            $("#c"+idT).each(function () {
+                displaying = $(this).css("display");
+                if (displaying === "block") {
+                    $(this).fadeOut('slow', function () {
+                        $(this).css("display", "none");
+                    });
+                } else {
+                    $(this).fadeIn('slow', function () {
+                        $(this).css("display", "block");
+                    });
+                }
+            });
+        });
+    });
+</script>

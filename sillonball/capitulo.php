@@ -3,6 +3,21 @@
     require './controller/logueadoController.php';
     $controller = new logueadoController();
     $usuario = $controller->getUserData($_SESSION["email"]);
+    $micapitulo = $controller->getInfoCapitulo($_GET["idCap"]);
+    foreach ($micapitulo as $capitulo){
+        $id = $capitulo[0];
+        $mitemporada = $controller->getInfoTemp($capitulo[1]);
+    }
+    foreach ($mitemporada as $temporada){
+        $numTemp = $temporada[2];
+        $miserie = $controller->getInfoSerie($temporada[0]);
+        foreach ($miserie as $serie){
+            $caratula_serie = $serie[2];
+            $nombre_serie = $serie[1];
+        }
+    }
+    $ucap = $controller->getUserCapitulo($_SESSION["email"], $id);
+    $comentarios = $controller->getComentarios($id);
 ?>
 
 <!DOCTYPE html>
@@ -20,55 +35,78 @@
  
     <section id="main-content">
     <article>
-        <header>
-            <h1>Capítulo 1x01</h1>
-        </header>
+        <?php
+        foreach ($micapitulo as $capitulo){
+            echo '<header><h1>'.$capitulo[2].'</h1></header>';
+        }
+        ?>
             
         <ul class="rig columns-2">
-            <li>
-                <img class="caratula" src="./assets/imagenes/caratulas/Daredevil2.jpg" alt="caratula"/>
-            </li>
-            <li>
-                <p><b>Serie:</b> Daredevil</p>
-                <p><b>Número de capítulo: </b> 1x01</p>
-                <p><b>Duración capítulos aprox: </b>53 min.</p>
-                <p> 
-                    <img class="stars" src="./assets/imagenes/iconos/fullstar.png"/>
-                    <img class="stars" src="./assets/imagenes/iconos/fullstar.png"/>
-                    <img class="stars" src="./assets/imagenes/iconos/fullstar.png"/>
-                    <img class="stars" src="./assets/imagenes/iconos/midstar.png"/>
-                    <img class="stars" src="./assets/imagenes/iconos/emptystar.png"/>
-                </p>
-                <p><b>Calificar :</b>
-                    <img class="stars" src="./assets/imagenes/iconos/emptystar.png"/>
-                    <img class="stars" src="./assets/imagenes/iconos/emptystar.png"/>
-                    <img class="stars" src="./assets/imagenes/iconos/emptystar.png"/>
-                    <img class="stars" src="./assets/imagenes/iconos/emptystar.png"/>
-                    <img class="stars" src="./assets/imagenes/iconos/emptystar.png"/>
-                </p>
-                <button> Visto </button>
-            </li>
+            <?php
+            if (isset($ucap['visto']) && $ucap['visto']){
+                $imagenVisto='<img src="./assets/imagenes/iconos/iconoVisto.png" title="Capitulo visto"/>';
+            }
+            else{
+                $imagenVisto='<img src="./assets/imagenes/iconos/iconoNoVisto.png" title="Capitulo no visto"/>';
+            }
+            foreach ($micapitulo as $capitulo){
+                $puntuacion = $controller->getPuntuacion($capitulo[0]);
+            echo'   <li>
+                        <img class="caratula" src="./assets/imagenes/caratulas/'.$caratula_serie.'" alt="caratula"/>
+                    </li>
+                    <li><p><b>Serie: </b>'.$nombre_serie.'</p>
+                        <p><b>Número de capítulo: </b>'.$numTemp.'x'.$capitulo[4].'</p>
+                        <p><b>Duración capítulo: </b>'.$capitulo[5].'min.</p>
+                        <p><b>Puntuación capítulo: </b>'.$puntuacion.'/10</p>
+                        <p><b>Calificar :</b>
+                            <form method="post" action="services/servicesParse.php?action=doPuntuar&idCap='.$id.'">
+                                <select id="puntuacion" name="puntuacion">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <button type="submit" value="Puntuar"> Puntuar! </button>
+                            </form>
+                        </p>
+                        <form method="post" action="services/servicesParse.php?action=doVisto&idCap='.$id.'">
+                            <button id=imgvisto type="submit" value="visto"> '.$imagenVisto.'</button>
+                        </form>
+                        
+                    </li>'; 
+            }
+            ?>
         </ul>    
         <ul class="comentarios">
-            <li>
-                <img class="usuarioComentario" src="./assets/imagenes/iconos/iconoUsuarioRojo.png"/>
-                <p class="nombreUsuarioComentario"> NOMBRE 1 </p>
-                <p>jfdñladjks fñlkasjdflñkasjd flñksjdflñsdkjf lñasjkdasdf jkñladkjsflñdjkfñlaskasf jklasdfjk</p>
-            </li>
-            <li>
-                <img class="usuarioComentario" src="./assets/imagenes/iconos/iconoUsuarioRojo.png"/>
-                <p class="nombreUsuarioComentario"> NOMBRE 2 </p>
-                <p>jfdñladjksfñlk asjdflñkasj dflñksjdflñ sdkjflñasjkda sdfjkñladkj sflñdjkfñlaskasfj klasdfjk</p>
-            </li>
-            <li>
-                <img class="usuarioComentario" src="./assets/imagenes/iconos/iconoUsuarioRojo.png"/>
-                <p class="nombreUsuarioComentario"> NOMBRE 3 </p>
-                <p>jfdñladjk sfñlkasjdflñkasjdflñ ksjdflñsdkjflñasj kdasdfjkñladkjsflñd jkfñlaskasfj klasdfjk</p>
-            </li> 
+            <?php
+                foreach($comentarios as $comentario){
+                    $userComent = $controller->getUserData($comentario[1]);
+                    echo '<li>
+                            <img class="usuarioComentario" src="./assets/imagenes/avatares/'.$userComent["avatar"].'"/>
+                            <p class="nombreUsuarioComentario">'.$userComent["nombre"] .'</p>
+                            <p>'.$comentario[3].'</p>
+                        </li>';
+                }
+            ?>
         </ul>
-        <img id="usuarioNuevoComentario" src="./assets/imagenes/iconos/iconoUsuarioRojo.png"/>
-        <p id="nombreUsuarioNuevoComentario">Nombre Usuario</p>
-        <textarea class="nuevoComentario" type="text" name= "Descripcion" value="" placeholder="Escribe aquí tu comentario."></textarea>
+        <?php
+            echo '<form action="./services/servicesParse.php?action=doComent&idCap='.$id.'" method="post">'
+                .'<img id="usuarioNuevoComentario" src="./assets/imagenes/avatares/'.$_SESSION["avatar"].'"/>'
+                .'<p id="nombreUsuarioNuevoComentario">'.$_SESSION["email"].'</p>'
+                .'<textarea class="nuevoComentario" type="text" name="nuevoComentario" value="" 
+                  placeholder="Escribe aquí tu comentario."></textarea>
+                <button type="submit" value="Enviar"> Enviar </button>
+                </form>';
+        ?>
+        
+        
+        
     </article> <!-- /article -->
     </section> <!-- / #main-content -->
     

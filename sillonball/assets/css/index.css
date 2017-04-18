@@ -13,7 +13,6 @@
 
 
 body{
-    overflow: hidden;
     font-family: sans-serif;
 }
 
@@ -53,7 +52,9 @@ form span{
     height: 15px;
     
 }
-
+#boton{
+    background-color: grey;
+}
 #myModal2 div {
     margin: -10px;
 }
@@ -110,6 +111,8 @@ input{
     border: solid black 1px;
     padding: 10px;
 }
+
+
 
 /****************************************************************+*****/
 

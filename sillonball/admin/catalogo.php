@@ -1,3 +1,11 @@
+<?php 
+    header('Content-Type: text/html; charset=utf-8');
+    session_start();
+    require '../controller/adminController.php';
+    $controller = new adminController();
+    $series = $controller->getCatalogo();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +15,7 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/editor.css">
     <link rel="stylesheet" href="../assets/css/catalogo.css">
+    <link rel="stylesheet" href="../assets/css/reveal.css">
 </head>
  
 <body>
@@ -16,148 +25,61 @@
 	<article>
             <header>
                 <h1>Catálogo</h1>
-                <h4>El único contenido que está linkado es el de Daredevil, ya que esto es una versión de prueba.
-                    En posteriores entregas todo el contenido tendrá el link referenciando a sus propios datos.
-                </h4>
-            </header>
-            <select>
-                    <option value="putuacion">Puntuación</option>
-                    <option value="genero">Género</option>
-                    <option value="titulo">Título</option>
-            </select>
-			
-                <a href="addSerie.php"> 
-                    <img class="botonCatalogoEditor" src="../assets/imagenes/iconos/iconoAdd.png" >
-                </a>
+            </header>	
+            <a href="addSerie.php"> 
+                <img class="botonCatalogoEditor" src="../assets/imagenes/iconos/iconoAdd.png" >
+            </a>
             <div class="content">
-                    <div id="three-columns" class="grid-container">
-			<ul class="rig columns-3">
-				<li>
-                    <a href="serie.php"><img src="../assets/imagenes/caratulas/Daredevil2.jpg" />
-                    
-                    </a>
-                    <a href="serie.php"><h3>Daredevil
-                        <div class="botonesSerie">
-                            <a href="editarSerie.php"> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoEditar.png" >
-                            </a>
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoBorrar.png" >
-                            </a>
-                        </div>
-                    </h3></a> 
-				</li>
-				<li>
-					<a><img src="../assets/imagenes/caratulas/Vikingos.jpg" /></a>
-					<h3>Vikingos
-                    <div class="botonesSerie">
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoEditar.png" >
-                            </a>
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoBorrar.png" >
-                            </a>
-                        </div>
-                    </h3>
-				</li>
-				<li>
-					<a><img src="../assets/imagenes/caratulas/Breaking_Bad.jpg" /></a>
-					<h3>Breaking bad
-                    <div class="botonesSerie">
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoEditar.png" >
-                            </a>
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoBorrar.png" >
-                            </a>
-                        </div>
-                    </h3>
-				</li>
-				<li>
-					<a><img src="../assets/imagenes/caratulas/Juego_de_tronos.jpg" /></a>
-					<h3>Juego de tronos
-                    <div class="botonesSerie">
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoEditar.png" >
-                            </a>
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoBorrar.png" >
-                            </a>
-                        </div>
-                    </h3>
-				</li>
-				<li>
-					<a><img src="../assets/imagenes/caratulas/Jessica_Jones.jpg" /></a>
-					<h3>Jessica Jones
-                    <div class="botonesSerie">
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoEditar.png" >
-                            </a>
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoBorrar.png" >
-                            </a>
-                        </div>
-                    </h3>
-				</li>
-				<li>
-					<a><img src="../assets/imagenes/caratulas/Los_100.jpg" /></a>
-					<h3>Los 100
-                    <div class="botonesSerie">
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoEditar.png" >
-                            </a>
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoBorrar.png" >
-                            </a>
-                        </div>
-                    </h3>
-				</li>
-				<li>
-					<a><img src="../assets/imagenes/caratulas/Pequenas_mentirosas.jpg" /></a>
-					<h3>Pequeñas mentirosas
-                    <div class="botonesSerie">
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoEditar.png" >
-                            </a>
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoBorrar.png" >
-                            </a>
-                        </div>
-                    </h3>
-				</li>
-				<li>
-					<a><img src="../assets/imagenes/caratulas/Silicon_Valley.jpg" /></a>
-					<h3>Silicon Valley
-                    <div class="botonesSerie">
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoEditar.png" >
-                            </a>
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoBorrar.png" >
-                            </a>
-                        </div>
-                    </h3>
-				</li>
-				<li>
-					<a><img src="../assets/imagenes/caratulas/The_Walking_Dead.jpg"></a>
-					<h3>The walking dead
-                    <div class="botonesSerie">
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoEditar.png" >
-                            </a>
-                            <a> 
-                                <img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoBorrar.png" >
-                            </a>
-                        </div>
-                    </h3>
-				</li>
-			</ul>
-		</div>
+                <div id="three-columns" class="grid-container">
+                    <ul class="rig columns-3" id="serie">
+                        <?php
+                            foreach($series as $serie){
+                                $ruta = '../assets/imagenes/caratulas/' . $serie[2];
+                                echo '<li>'
+                                    . '<a href=serie.php?id=' . $serie[0] . '>'
+                                    . '<img src="' . $ruta . '"/>'
+                                    . '</a>'
+                                    . '<a href=serie.php?id=' . $serie[0] . '><h3>'.$serie[1].'</h3></a>'
+                                    . '<a href=editarSerie.php?id=' . $serie[0] . '><img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoEditar.png" /></a>'
+                                    . '<a class="deleteSerie" id="'.$serie[0].'"><img class="botonSerieEditor" src="../assets/imagenes/iconos/iconoBorrar.png" /></a>'
+                                . '</li>';
+                            }
+                        ?>
+                    </ul>
+                    <div id="myModal" class="reveal-modal">                
+                        <h3>¿Estás seguro de que deseas eliminar esta serie?</h3>
+                        <a class="botonModal" id="siBorrar">Sí</a>
+                        <a class="botonModal" href="../admin/catalogo.php">No</a>
+                    </div>
 		<!--/#three-columns-->    
+                </div>
             </div>
 	</article> <!-- /article -->
     </section> <!-- / #main-content -->
- 	
-     <?php include 'common/pie.php' ?>
+
+    <?php include 'common/pie.php' ?>
+    
+    <script src="../assets/js/jquery.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.reveal.js" type="text/javascript"></script>
+    <script>
+     var idSerie;
+     $("#serie").on("click", ".deleteSerie", function(){ 
+        idSerie = $(this).attr("id");  
+	$('#myModal').reveal({
+            animation: 'fade',              // fade, fadeAndPop, none
+            animationspeed: 600,            // how fast animtions are
+            closeonbackgroundclick: true,   // if you click background will modal close?
+            dismissmodalclass: 'close' 
+        });
+    });
+    
+    $("#siBorrar").on("click",function(){ 
+        url="../services/servicesCatalogoAdminParse.php?&action=deleteSerie&id="+idSerie;
+        $.get(url);
+        
+        alert("Serie eliminada con exito.");
+        location.reload();
+    });
+    </script>
 </body>
 </html>

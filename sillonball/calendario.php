@@ -1,4 +1,5 @@
-<?php 
+<?php       
+    header('Content-Type: text/html; charset=utf-8');
     session_start();
     require './controller/logueadoController.php';
     $controller = new logueadoController();
@@ -22,17 +23,10 @@
             <header>
                 <h1>Calendario</h1>
             </header>
-                <img src="./assets/imagenes/calendario.png"/>
                     <div class="content">
-                        <p>
-                            Aquí iría el Google Calendar con los próximos eventos programados como próximos extrenos o noticias relevantes sobre alguna serie.
-                        </p>
-                        <p>
-                            La idea es que los Sillonballers puedan sincronizar el calendario con sus dispositivos y tengan las alertas de los eventos.
-                        </p>
-                       
+                        <iframe src="https://calendar.google.com/calendar/embed?src=sillonball.events%40gmail.com&ctz=Europe/Madrid" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
                     </div>
-	</article> <!-- /article -->
+        </article> <!-- /article -->
     </section> <!-- / #main-content -->
  	
     <?php include 'common/pie.php' ?>

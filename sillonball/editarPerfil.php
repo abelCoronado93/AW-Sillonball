@@ -54,7 +54,7 @@
                 <input class="form-input" type="password" name= "Correo" value="" placeholder=""/>
                 
                 <p><strong>Descripción</strong></p>
-                <textarea class="form-input" type="text" name= "Descripcion" value="<?php echo $usuario['descripcion'];?>"></textarea>
+                <textarea class="form-input" type="text" name= "Descripcion" ><?php echo $usuario['descripcion'];?></textarea>
                 
             </div>
             <div class="edita-boton">
@@ -79,7 +79,6 @@
 
                 reader.onload = function (e) {
                     $('#image').attr('src', e.target.result);
-                    
                     $('#image').cropper({
                       aspectRatio: 1,
                       crop: function(e) {
@@ -87,7 +86,6 @@
                       }
                     });
                 }
-
                 reader.readAsDataURL(input.files[0]);
             }
         }

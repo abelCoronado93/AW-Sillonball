@@ -38,7 +38,7 @@
                 <p><strong>Descripción:</strong> <?php echo $usuario['descripcion']; ?></p>
             </div>
             <div class="edita-boton">
-                <a href="editarperfil.php"><button class="form-button">Editar</button></a>
+                <a href="editarPerfil.php"><button class="form-button">Editar</button></a>
                 <a href="services/servicesParse.php?action=logOut"><button class="form-button">Cerrar sesión</button></a>
             </div>
         </div>

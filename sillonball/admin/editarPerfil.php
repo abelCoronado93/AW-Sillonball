@@ -1,72 +1,91 @@
+<?php 
+    session_start();
+    require '../controller/adminController.php';
+    $controller = new adminController();
+    $usuario = $controller->getUserData($_SESSION["email"]);
+?>
+
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
     <title>Sillonball</title>
-    <link id="favicon" rel="icon" href="assets/imagenes/iconos/favicon.png" type="image/png"/>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/perfil.css">
-
-
+    <link id="favicon" rel="icon" href="../assets/imagenes/iconos/favicon.png" type="image/png"/>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/perfil.css">
+    <link  href="assets/css/cropper.min.css" rel="stylesheet">
 </head>
  
 <body>
-    <header id="main-header">
-        <div id="div-fotoCab"><a href="main.php"><img id="foto-cabecera" src="assets/imagenes/iconos/iconoSillon.png" alt=""/></a></div>
-        <a id="logo-header" href="main-admin.php">
-            <span class="site-name">Admin</span>
-            <span class="site-desc"><em>Adminístrame!</em></span>
-        </a> <!-- / #logo-header -->
-        <input type="checkbox" id="check-menu">
-        <nav class="menu">
-            <ul>
-                <li><a href="admin.php"><img class="icono-cabecera" src="assets/imagenes/iconos/iconoAdministracion.png" alt="Catálogo"/></a></li>
-                <li><a href="catalogo.php"><img class="icono-cabecera" src="assets/imagenes/iconos/iconoGrid.png" alt="Catálogo"/></a></li>
-                <li><a href="calendario.php"><img class="icono-cabecera" src="assets/imagenes/iconos/iconoCalendario.png" alt="Calendario"/></a></li>
-                <li><a href="perfil.php"><img class="icono-cabecera" src="assets/imagenes/iconos/iconoUsuario2.png" alt="Mi Perfil"/></a></li>
-            </ul>
-       </nav><!-- / nav -->
-    </header><!-- / #main-header -->
-    <label id="boton-menu" for="check-menu"><h3 id="boton-menu-responsive">Menú</h3></label>
+    <?php include 'common/cabecera.php' ?>
  
     <section id="main-content">
 	<article>
         <div class="content">
             
-            <div class="info">
+            <form method="post" action="../services/servicesParseAdmin.php?action=editPerfil" enctype="multipart/form-data">
+            <div class="info">                
+                <p><strong>Nombre</strong></p>
                 
-                <img id="img-user" src="assets/imagenes/iconos/iconoUsuario2.png"/>
+                <input class="form-input" type="text" name="Nombre" value="<?php echo $usuario['nombre'];?>" />
                 
-                <p><b>Nombre</b></p>
-                <input class="form-input" type="text" name= "Nombre" value="" placeholder="Pablo Emilio"/>
+                <p><strong>Apellidos</strong></p>
+                <input class="form-input" type="text" name="Apellidos" value="<?php echo $usuario['apellidos'];?>" />
                 
-                <p><b>Apellidos</b></p>
-                <input class="form-input" type="text" name= "Apellidos" value="" placeholder="Escobar Gaviria"/>
+                <!-- <p><strong>Correo</strong></p> 
+                <input class="form-input" type="text" name= "Correo" value=<//?php echo $usuario['email'];?>/> -->
                 
-                <p><b>Correo</b></p> 
-                <input class="form-input" type="text" name= "Correo" value="" placeholder="farlopa@colombia.co"/>
-                
-                <p><b>Contraseña</b></p> 
+                <p><strong>Contraseña</strong></p> 
                 <input class="form-input" type="password" name= "Correo" value="" placeholder=""/>
                 
-                <p><b>Descripción</b></p>
-                <textarea class="form-input" type="text" name= "Descripcion" value="" placeholder="Plata o plomo."></textarea>
+                <p><strong>Descripción</strong></p>
+                <textarea class="form-input" type="text" name= "Descripcion" ><?php echo $usuario['descripcion'];?></textarea>
                 
             </div>
             <div class="edita-boton">
-                <a href="perfil.php"><button class="form-button">Atrás</button></a>
-                <a href="#"><button class="form-button">Aceptar</button></a>    
+                <input class="form-button" type="button" name="Atrás" value="Atrás" onclick="location.href='../perfil.php'"/>
+                <button type="submit" class="form-button">Aceptar</button>
+                
             </div>
+            </form>
         </div>
                         	       		
 	</article> <!-- /article -->
     </section> <!-- / #main-content -->
  	
-    <footer id="main-footer">
-        <div class="grid-footer"><a href="acercade.php">Quiénes somos</a></div>
-        <div class="grid-footer"> <a href="http://informatica.ucm.es/">Facultad de Informática UCM</a> &copy; 2016</div>
-        <div class="grid-footer"><a href="contacto.php">Contacto</a></div>
-    </footer> <!-- / #main-footer -->
-    
+    <?php include 'common/pie.php' ?>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/cropper.min.js"></script>
+    <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image').attr('src', e.target.result);
+                    
+                    $('#image').cropper({
+                      aspectRatio: 1,
+                      crop: function(e) {
+                        $("#croppedData").val('{"x": '+e.x+', "y": '+e.y+', "width": '+e.width+', "height": '+e.height+'}');
+                      }
+                    });
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        $(document).on('ready', function(){
+            $('#img-perfil').on('change', function(){
+                
+                readURL(this);
+                
+            });
+        });
+       
+    </script>
 </body>
 </html>

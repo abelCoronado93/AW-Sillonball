@@ -70,8 +70,27 @@
 	margin-bottom: 10px;
 } 
 
-.stars{
-	width: 15px;
+.iconoBorrarComentario{
+    float:right;
+    border: none;
+    background-color: Transparent;
+    cursor:pointer;
+    width: 32px;
+    height: 32px;
+    margin-right: 32px;
+}
+
+#imgvisto{
+    border: none;
+    background-color: Transparent;
+    cursor:pointer;
+    width: 64px;
+    height: 64px;
+}
+
+.botonCapituloEditor{
+    width: 32px;
+    height: 32px;
 }
 
 #two-column{
