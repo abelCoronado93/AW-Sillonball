@@ -22,9 +22,9 @@ ul.rig li {
 ul.rig li img {
 	max-width: 100%;
 	height: 300px;
-    width: auto;
+        width: auto;
 	margin: 0 0 10px;
-    cursor: pointer;
+        cursor: pointer;
 }
 
 ul.rig li h3 {
@@ -47,6 +47,7 @@ ul.rig li img#i-addSerieLista{
 /* class for 3 columns */
 ul.rig.columns-3 li {
 	width: 30.83%; /* this value + 2.5 should = 33% */
+        text-align: center;
 }
 
 select{
@@ -63,6 +64,10 @@ select{
 	float: right;
 	padding-right: 5%;
 	
+}
+
+.anyadirSerie {
+	cursor: pointer;
 }
 
 @media (max-width: 830px) {

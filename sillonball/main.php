@@ -38,7 +38,7 @@
         <h1> Te puede interesar </h1>
 		<ul class="rig columns-3">
 			<li>
-				<img src="./assets/imagenes/caratulas/Jessica_Jones.jpg" />
+				<img src="./assets/imagenes/caratulas/21Jessica_Jones.jpg" />
 			</li>
 			<li>
 				<img src="./assets/imagenes/caratulas/Silicon_Valley.jpg" />

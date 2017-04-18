@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    require '../controller/adminController.php';
+    $controller = new adminController();
+    $usuario = $controller->getUserData($_SESSION["email"]);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,15 +24,14 @@
 	<article>
         <div class="content">
             <div class="info">
-                <img id="img-user" src="../assets/imagenes/iconos/iconoUsuario2.png"/>
-                    <p><b>Nombre:</b> Pablo Emilio</p>
-                    <p><b>Apellidos:</b> Escobar Gaviria</p>
-                    <p><b>Correo:</b> farlopa@colombia.co</p>
-                    <p><b>Descripción:</b> Plata o plomo.</p>
+                <p><strong>Nombre:</strong> <?php echo $usuario['nombre']; ?> </p>
+                <p><strong>Apellidos:</strong> <?php echo $usuario['apellidos']; ?></p>
+                <p><strong>Correo:</strong> <?php echo $usuario['email']; ?></p>
+                <p><strong>Descripción:</strong> <?php echo $usuario['descripcion']; ?></p>
             </div>
             <div class="edita-boton">
-                <a href="editarperfil-admin.php"><button class="form-button">Editar</button></a>
-                <a href="../index.php"><button class="form-button">Salir</button></a>
+                <a href="editarPerfil.php"><button class="form-button">Editar</button></a>
+                <a href="../services/servicesParseAdmin.php?action=logOut"><button class="form-button">Cerrar sesión</button></a>
             </div>
         </div>
                             		

@@ -11,11 +11,11 @@ ul li.nivel1{
 	margin-right: 1px;
 }
 
-ul li:hover  ul.nivel2{
+/*ul li:hover  ul.nivel2{
 	display: block;
 	position: relative;
     left: 0px;
-}
+}*/
 
 .nivel1{
     cursor: default;
@@ -39,16 +39,13 @@ ul li:hover  ul.nivel2{
 ul.rig {
 	list-style: none;
 	font-size: 0px;
-	//margin-left: -2.5%; /* should match li left margin */
 }
 ul.rig li {
 	display: inline-block;
 	padding: 10px;
 	margin: 0 0 2.5% 2.5%;
-	//border: 1px solid #ddd;
 	font-size: 16px;
 	vertical-align: top;
-	//box-shadow: 0 0 5px #ddd;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;

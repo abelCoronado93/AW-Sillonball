@@ -49,11 +49,41 @@ select{
     border: none;
 }
 
+form {
+    margin: auto;
+    text-align: center;
+}
+
 #paneleditor{	
 	float: right;
 	padding-right: 5%;
 	
 }
+
+label{
+    color: #d83b3b;
+    font-size: 22px;
+    float: left;
+    margin-left: 5%;
+}
+
+input{
+    border-width: 1px;
+    border-radius: 5px;
+    float: right;
+    border: solid black 1px;
+    padding: 5px;
+    margin-right: 5%;
+}
+
+#boton{
+    background-color: grey;
+    margin-left: 33%;
+    cursor: default;
+    margin-top: 10%;
+    
+}
+
 
 @media (max-width: 800px) {
 	.container {

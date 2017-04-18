@@ -45,7 +45,7 @@
                 <form action="services/servicesParse.php?action=doRegister" method="post">
                     <div>
                         <label>Nombre</label>
-                        <input type="text" name="username">
+                        <input id="campoNombre" class="required" type="text" name="username">
                     </div>
                     
                     <div>
@@ -55,24 +55,75 @@
                     
                     <div>
                         <label>Correo electrónico</label>
-                        <input type="text" name="useremail">
+                        <input class="required" id="campoEmail" type="text" name="useremail">
+                   
                     </div>
                     
                     <div>
                         <label>Contraseña</label>
-                        <input type="password" name="password1">
+                        <input class="required" id="campoPass" type="password" name="password1">
                     </div>
                     
                     <div>
                         <label>Repita la contraseña</label>
-                        <input type="password" name="password2">
+                        <input class="required" id="campoPass2" type="password" name="password2">
                     </div>
-                    <button type="submit" value="Aceptar">Aceptar</button> 
+                    <button id="boton" type="submit" disabled="true" value="Aceptar">Aceptar</button> 
                 </form>  
             </div>
         </div>
         <script src="assets/js/jquery.js" type="text/javascript"></script>
         <script src="assets/js/jquery.reveal.js" type="text/javascript"></script>
+        <script>	
+
+        $("#campoPass, #campoPass2").change(function(){
+            if(($("#campoPass").val() !== $("#campoPass2").val() &&
+                    (($("#campoPass2").val()) !== "")) &&
+                    (($("#campoPass").val()) !== "")){
+                $("#campoPass").css("border", "solid");
+                $("#campoPass").css("border-color", "#d83b3b");
+                $("#campoPass2").css("border", "solid");
+                $("#campoPass2").css("border-color", "#d83b3b");
+                alert("Las contraseñas no coinciden");
+            }
+            else {
+                $("#campoPass").css("border", "solid");
+                $("#campoPass").css("border-color", "green");
+                $("#campoPass2").css("border", "solid");
+                $("#campoPass2").css("border-color", "green");
+            }
+	});
+        $("#campoEmail").change(function(){
+            if(($("#campoEmail").val().indexOf('@', 0) === -1 || $("#campoEmail").val().indexOf('.', 0) === -1) ){
+                $("#campoEmail").css("border", "solid");
+                $("#campoEmail").css("border-color", "#d83b3b");
+                alert("Correo no válido");
+            }
+            else {
+                $("#campoEmail").css("border", "solid");
+                $("#campoEmail").css("border-color", "green");
+            }
+	});
+        
+        $(".required").change(function(){
+            if(($("#campoNombre").val() !== "") &&
+                    ($("#campoPass").val() !== "") &&
+                    ($("#campoPass2").val() !== "") &&
+                    ($("#campoEmail").val() !== "") &&
+                    (!($("#campoEmail").val().indexOf('@', 0) === -1 || $("#campoEmail").val().indexOf('.', 0) === -1))&&
+                    (($("#campoPass").val() === $("#campoPass2").val()))){
+                        $('#boton').removeAttr('disabled');
+                        $('#boton').css("cursor", "pointer");
+                        $('#boton').css("background-color", "#d83b3b");
+                    }
+            else {
+                $('#boton').attr('disabled', 'disabled');
+                $('#boton').css("cursor", "default");
+                $('#boton').css("background-color", "grey");
+            }
+        });
+
+        </script>
     </body>
     
 </html>

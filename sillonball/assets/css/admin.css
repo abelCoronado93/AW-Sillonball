@@ -6,13 +6,12 @@ p {
     padding: 3% 0 4% 13%;
 }
 
-form {
-    padding: 0 0 3% 32%;
+.subtitulo{
+    text-align: center;
 }
 
-ul {
-    padding-left: 46%;
-    padding-bottom: 4%;
+form {
+    padding: 0 0 3% 32%;
 }
 
 ul li {
@@ -21,6 +20,25 @@ ul li {
 
 ul h4 {
     font-size: 20px;
-    margin-bottom: 2px;
-    
+    margin-bottom: 2px;   
+}
+
+.editores li p{
+   text-align: center;
+   padding: 0px;
+}
+
+.editores {
+    padding-bottom: 20px; 
+}
+
+.botonModal{
+    padding-right: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #666; 
+}
+
+.botonBorrar{
+    cursor: pointer;
 }
